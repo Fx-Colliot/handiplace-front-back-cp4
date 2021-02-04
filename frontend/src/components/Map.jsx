@@ -17,9 +17,9 @@ function Map() {
     <MapDiv>
       <MapContainer
         center={[50.62925, 3.057256]}
-        zoom={16}
+        zoom={13}
         minZoom={13}
-        maxZoom={19}
+        maxZoom={17}
       >
         {locations.map((location) => (
           <Marker position={[location.latitude, location.longitude]} />

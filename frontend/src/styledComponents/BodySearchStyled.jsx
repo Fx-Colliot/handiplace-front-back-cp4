@@ -9,7 +9,6 @@ export const ContainerSearch = styled.div`
   width: 35vw;
   @media ${Device.mobile} {
     width: 100%;
-    margin-top: 3vh;
   }
 `;
 
@@ -47,7 +46,6 @@ export const SearchMain = styled.div`
   height: 10vh;
   @media ${Device.mobile} {
     width: 60%;
-    margin-top: 3vh;
   }
 `;
 
