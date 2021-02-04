@@ -8,6 +8,6 @@ frontend spa with React
   use axios, leaflet, and styled-components
   
 backend
-  use cors, dotenv, express, mysql2
+  use node, express, mysql2, cors
   
   
