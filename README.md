@@ -5,7 +5,7 @@ This website is to help people with disabilities to find reserved parking spaces
 For the moment the site the site refers to the city of Lille
 
 frontend spa with React
-  use axios, leaflet, and styled-components
+  use axios, leaflet, styled-components, styled-reset
   
 backend
   use node, express, mysql2, cors
