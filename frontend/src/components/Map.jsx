@@ -10,12 +10,13 @@ import {
 import { MapDiv } from "../styledComponents/MapStyled";
 import axios from "axios";
 import geoLocation from "../GeoLocation/geoLocation";
+import PinIcon from "./PinIcon";
 
 function Map() {
   const mapRef = useRef();
   const [spaces, setSpaces] = useState([]);
   const location = geoLocation();
-  const position = [50.62925, 3.057256];
+  const loos = [50.6167, 3.0167];
 
   //const showMyLocation = () => {
   //  if (location.loaded && !location.error) {
@@ -44,38 +45,12 @@ function Map() {
   return (
     <MapDiv>
       <MapContainer
-        center={position}
+        center={loos}
         // center={[50.62925, 3.057256]}
         zoom={15}
         //minZoom={12}
         //maxZoom={17}
       >
-        <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" />
-
-        {/* } {location.loaded && !location.error && ( */}
-        <>
-          <Marker
-            // position={position}
-            position={[location.coordinates.lat, location.coordinates.lng]}
-          >
-            {/* <Circle
-              center={position}
-              radius={1000}
-              center={[location.coordinates.lat, location.coordinates.lng]}
-              radius={300}
-              color="green"
-              fillColor="#0163FF"
-              fillOpacity={0.4}
-              opacity={1}
-            /> */}
-
-            <Popup>
-              <p>toto</p>
-            </Popup>
-          </Marker>
-        </>
-        {/* )}*/}
-
         {spaces.map((space) => (
           <Marker
             key={space.idplaces}
@@ -90,6 +65,32 @@ function Map() {
             /
           </Marker>
         ))}
+
+        {/* <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" /> */}
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        {/* } {location.loaded && !location.error && ( */}
+        <>
+          <Marker
+            // position={position}
+            position={[location.coordinates.lat, location.coordinates.lng]}
+            icon={PinIcon}
+          >
+            <Popup>
+              <p>toto</p>
+            </Popup>
+          </Marker>
+          {/* <Circle
+            center={[location.coordinates.lat, location.coordinates.lng]}
+            radius={300}
+            color={"#696969"}
+            fillColor={"#455A64"}
+          /> */}
+        </>
+        {/* )}*/}
       </MapContainer>
       {/*} <div>
     //     <button onClick={showMyLocation}>Locate Me</button>
