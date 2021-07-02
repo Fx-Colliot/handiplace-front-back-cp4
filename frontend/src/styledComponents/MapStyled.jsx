@@ -5,8 +5,9 @@ export const MapDiv = styled.div`
   display: flex;
   width: 40vw;
   margin-top: 6vh;
+  border: 2px solid grey;
   .leaflet-container {
-    width: 35vw;
+    width: 45vw;
     height: 60vh;
   }
   @media ${Device.mobile} {

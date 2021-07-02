@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+// eslint-disable-next-line
 import L from "leaflet";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { MapDiv } from "../styledComponents/MapStyled";
 import axios from "axios";
 
-function Map() {
+const loos = [50.616669, 3.01667];
+
+function HandiMap() {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
@@ -13,22 +16,22 @@ function Map() {
     });
   }, []);
   console.log(locations);
+
   return (
     <MapDiv>
-      <MapContainer
-        center={[50.62925, 3.057256]}
-        zoom={13}
-        minZoom={13}
-        maxZoom={17}
-      >
+      <MapContainer center={loos} zoom={13}>
+        <TileLayer
+          url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
         {locations.map((location) => (
-          <Marker position={[location.latitude, location.longitude]} />
+          <Marker position={[location.latitude, location.longitude]}>
+            <Popup>{[location.voie]}</Popup>
+          </Marker>
         ))}
-
-        <TileLayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png" />
       </MapContainer>
     </MapDiv>
   );
 }
 
-export default Map;
+export default HandiMap;
